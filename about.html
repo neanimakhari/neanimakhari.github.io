@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Vhulenda Bakes About us</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<meta name="author" content="Neani">
+	    <meta name="keywords" content="doughnuts, malva, pudding, tart, brownies, scones">
+	    <meta name="description" content="">
+	    
+	</head>
+	<body background color = #DAA06D>
+
+
+	<header id="header">
+	<center>	
+	<a href="index.html">
+	<img src="images/main_logo.jpg" alt="logo">
+	</center>
+	</br>
+<center>					
+<font size = "+4" color = "white">Pages </font>
+							
+								<p><a href="about.html" class="dropdown-item">|  About us  |</a>
+								<a href="contact.html" class="dropdown-item">Contact us  |</a>
+								<a href="home.html" class="dropdown-item">Shop  |</a>
+								<a href="https://www.instagram.com/vhulenda.bakes/" class="dropdown-item">Instagram |</a>
+								
+							
+						
+
+</center>
+				
+
+	</header>
+						<center><h1>About Us</h1></center>
+	
+<img src="images/vhulenda.jpg" alt="ceo" width="500" height="600">
+
+<?php
+                    $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+                    if (isset($_POST['submit']) && $password === 'vbakes123') {  // Replace 'your_password' with your desired password
+                        // Password is correct, display the link
+                        echo '<a href="update_products.html" style="text-decoration: none;"><font color="black">Vhulenda</font></a>';
+                    } else {
+                        // Password is incorrect or not provided, display the password form
+                        echo '
+                        <form method="POST" action="">
+                            <input type="password" name="password" placeholder="Enter the password">
+                            <input type="submit" name="submit" value="Submit">
+                        </form>';
+                    }
+                    ?>
+				
+<h2 class="section-title text-center mb-3"><a href="update_products.html" style = "text-decoration: none;"><FONT COLOR=black>Vhulenda</FONT></a> Manyaga Owner</h2>
+<p>Vhulenda Manyaga, the owner of Vhulenda Bakes. Baking started as a hobby for her, she started baking when she was 11, she is also a full time student at North West University (NWU) She decided to start this business in 2023, and it is functional.</p>
+	
+</section>
+<h1>Our Working hours:</h1>
+
+<p>Monday to Friday : 08:00 AM - 16:00 PM</p>
+</footer>
+
+			
+				<p>We Accept:</p>
+				<p>Cash on delivery (Note! deposit needed) and Electronic Transfer </p>
+			
+
+
+</body>
+
+<p style = "font-family:georgia,garamond,serif;font-size:40px;font-style:italic;">Our email: vhulendabakes@gmail.com      Our Cell No: 0714563228 </p>
+<div class="copyright">
+				<p class="mb-0">© Vhulenda Bakes</p>
+			</div>
+</html>	

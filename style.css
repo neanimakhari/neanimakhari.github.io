@@ -1,0 +1,35 @@
+body {
+  background-color: #DAA06D;
+  
+  
+}
+h1 {
+  color: black;
+  font-family: Zapf Chancery;
+  font-size: 40px;
+}
+p {
+  font-family: Zapf Chancery;
+  font-size: 40px;
+  color: black;
+}
+
+img{
+	width:500px;
+	height: 600px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+#cart {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}

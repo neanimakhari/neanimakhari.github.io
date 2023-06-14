@@ -1,0 +1,191 @@
+<html>
+<head>
+	<title>Vhulenda Bakes Shop</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="author" content="Neani">
+	<meta name="keywords" content="doughnuts, malva, pudding, tart, brownies, scones">
+	<meta name="description" content="">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<center>
+		<a href="home.html">
+			<img src="images/main_logo.jpg" alt="logo">
+		</a>
+		<br>
+		<p> <b>We will have a sale in:</b></p>
+		
+		<p id="demo"></p>
+
+		<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("Aug 5, 2023 15:37:25").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+			// Get today's date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the element with id="demo"
+			document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("demo").innerHTML = "EXPIRED";
+			}
+		}, 1000);
+		</script>
+<font size="+4">Pages</font>
+		<p>
+			<a href="about.html" class="dropdown-item">| About us |</a>
+			<a href="contact.html" class="dropdown-item">Contact us |</a>
+			<a href="home.html" class="dropdown-item">Shop |</a>
+			<a href="https://www.instagram.com/vhulenda.bakes/" class="dropdown-item">Instagram |</a>
+			
+		</p>
+
+		<h1>Shop</h1>
+
+		<div class="row">
+			<div class="column">
+				<img src="images/malva.jpg" style="width:80%">
+				<p>Malva Pudding R50</p>
+				<button onclick="addToCart('Malva Pudding', 50)">Add to Cart</button>
+			</div>
+
+			<div class="column">
+				<img src="images/doughnuts.jpg" style="width:80%">
+				<p>Doughnuts R90</p>
+				<button onclick="addToCart('Doughnuts', 90)">Add to Cart</button>
+			</div>
+
+			<div class="column">
+				<img src="images/brownies.jpg" style="width:80%">
+				<p>Brownies R60</p>
+				<button onclick="addToCart('Brownies', 60)">Add to Cart</button>
+			</div>
+
+			<div class="column">
+				<img src="images/velvet_brownies.jpg" style="width:80%">
+				<p>Red Velvet R65</p>
+				<button onclick="addToCart('Red Velvet', 65)">Add to Cart</button>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row">
+			<div class="column">
+				<img src="images/cinnamonrolls.jpg" style="width:80%">
+				<p>Cinnamon Rolls R60 (4) R90 (6) R120 (12)</p>
+				<button onclick="addToCart('Cinnamon Rolls', 60)">Add to Cart</button>
+			</div>
+
+			<div class="column">
+				<img src="images/milk_tart.jpg" style="width:80%">
+				<p>Milk Tart R60</p>
+				<button onclick="addToCart('Milk Tart', 60)">Add to Cart</button>
+			</div>
+
+			<div class="column">
+				<img src="images/scones.jpg" style="width:80%">
+				<p>Scones R70</p>
+				<button onclick="addToCart('Scones', 70)">Add to Cart</button>
+			</div>
+		</div>
+
+	</section>
+
+	
+
+	<div id="cart">
+		<h2>Cart</h2>
+		<table>
+			<tr>
+				<th>Item</th>
+				<th>Price</th>
+				<th></th>
+			</tr>
+			<tbody id="cartItems"></tbody>
+		</table>
+		<p id="totalPrice">Total Price: R0</p>
+		<button onclick="checkout()">Checkout</button>
+	</div>
+
+	<script>
+		var cartItems = [];
+
+		function addToCart(itemName, itemPrice) {
+			var item = {
+				name: itemName,
+				price: itemPrice
+			};
+			cartItems.push(item);
+			alert("Item added to cart!");
+			displayCartItems();
+			calculateTotalPrice();
+		}
+
+		function displayCartItems() {
+			var cartItemsTable = document.getElementById("cartItems");
+			cartItemsTable.innerHTML = "";
+
+			cartItems.forEach(function(item, index) {
+				var row = cartItemsTable.insertRow();
+				var nameCell = row.insertCell(0);
+				var priceCell = row.insertCell(1);
+				var removeButtonCell = row.insertCell(2);
+
+				nameCell.innerHTML = item.name;
+				priceCell.innerHTML = "R" + item.price;
+				removeButtonCell.innerHTML = "<button onclick='removeFromCart(" + index + ")'>Remove</button>";
+			});
+		}
+
+		function calculateTotalPrice() {
+			var totalPrice = 0;
+			cartItems.forEach(function(item) {
+				totalPrice += item.price;
+			});
+			document.getElementById("totalPrice").innerHTML = "Total Price: R" + totalPrice;
+		}
+
+		function removeFromCart(index) {
+			cartItems.splice(index, 1);
+			displayCartItems();
+			calculateTotalPrice();
+		}
+
+		function checkout() {
+			// Process the cart and perform checkout operations
+			// You can add your own logic here
+			alert("Checkout completed!");
+		}
+	</script>
+	
+	<p>Delivery: Note delivery can be arranged at a increase of price and delivery for orders over R150 is free, you can also collect ther order on arrangement</p>
+	<p>We Accept:</p>
+	<p>Cash on delivery (Note! deposit needed) and Electronic Transfer</p>
+<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<h1>Our Working hours:</h1>
+				<p>Monday to Friday: 08:00 AM - 16:00 PM</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

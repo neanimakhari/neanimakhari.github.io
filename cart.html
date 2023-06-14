@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<center>
+<h1>Note this cart is only for you to see the price of the products you want to buy!</h1>
+<>
+	<div id="cart">
+		<h2>Cart</h2>
+		<table>
+			<tr>
+				<th>Item</th>
+				<th>Price</th>
+				<th></th>
+			</tr>
+			<tbody id="cartItems"></tbody>
+		</table>
+		<p id="totalPrice">Total Price: R0</p>
+		<button onclick="checkout()">Checkout</button>
+	</div>
+
+	<script>
+		var cartItems = [];
+
+		function addToCart(itemName, itemPrice) {
+			var item = {
+				name: itemName,
+				price: itemPrice
+			};
+			cartItems.push(item);
+			alert("Item added to cart!");
+			displayCartItems();
+			calculateTotalPrice();
+		}
+
+		function displayCartItems() {
+			var cartItemsTable = document.getElementById("cartItems");
+			cartItemsTable.innerHTML = "";
+
+			cartItems.forEach(function(item, index) {
+				var row = cartItemsTable.insertRow();
+				var nameCell = row.insertCell(0);
+				var priceCell = row.insertCell(1);
+				var removeButtonCell = row.insertCell(2);
+
+				nameCell.innerHTML = item.name;
+				priceCell.innerHTML = "R" + item.price;
+				removeButtonCell.innerHTML = "<button onclick='removeFromCart(" + index + ")'>Remove</button>";
+			});
+		}
+
+		function calculateTotalPrice() {
+			var totalPrice = 0;
+			cartItems.forEach(function(item) {
+				totalPrice += item.price;
+			});
+			document.getElementById("totalPrice").innerHTML = "Total Price: R" + totalPrice;
+		}
+
+		function removeFromCart(index) {
+			cartItems.splice(index, 1);
+			displayCartItems();
+			calculateTotalPrice();
+		}
+
+		function checkout() {
+			// Process the cart and perform checkout operations
+			// You can add your own logic here
+			alert("Checkout completed!");
+		}
+	</script>
+</body>
+</html>
